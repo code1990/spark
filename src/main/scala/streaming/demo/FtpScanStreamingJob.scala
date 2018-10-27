@@ -1,7 +1,5 @@
 package streaming.demo
 
-;
-
 import java.io.File
 
 //import job.demo.GlobalInstance

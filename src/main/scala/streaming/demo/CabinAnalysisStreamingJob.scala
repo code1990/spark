@@ -1,4 +1,4 @@
-package streaming.demo;
+package streaming.demo
 
 import java.sql.{Connection, DriverManager, ResultSet, Statement}
 import java.time.format.DateTimeFormatter
