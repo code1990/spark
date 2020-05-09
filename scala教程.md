@@ -207,3 +207,92 @@ class Outer {
 
 作用域保护(用的少)
 
+---------------
+
+# 06Scala 运算符
+
+  一个运算符是一个符号，用于告诉编译器来执行指定的数学运算和逻辑运算。
+
+ Scala 含有丰富的内置运算符，包括以下几种类型：
+
+- 算术运算符 +-*/% 加减乘除取余
+- 关系运算符 等于大于小于
+- 逻辑运算符 && || ！
+- 位运算符 ~,&,|,^
+- 赋值运算符
+
+```scala
+object Base06Test {
+
+  def main(args: Array[String]): Unit = {
+    test01()
+    test02()
+    test03()
+    test04()
+    test05()
+  }
+
+  //算术运算符
+  def test01(): Unit = {
+    val a = 10
+    val b = 2
+    println(a + b)
+    println(a - b)
+    println(a * b)
+    println(a / b)
+    println(a % b)
+
+  }
+
+  //关系运算符
+  def test02(): Unit = {
+    val a = 10
+    val b = 11
+    println(a == b)
+    println(a != b)
+    println(a >= b)
+    println(a > b)
+    println(a <= b)
+    println(a < b)
+  }
+
+  //逻辑运算符
+  def test03(): Unit = {
+    val a = true
+    val b = false
+    println(a && b)
+    println(a || b)
+    println(!a)
+  }
+
+  //位运算符
+  def test04(): Unit = {
+    val a = 1
+    val b = 2
+    println(a & b)
+    println(a | b)
+    println(a ^ b)
+    println(b << 2)
+    println(b >> 2)
+    println(b >>> 2)
+  }
+
+  //赋值运算符
+  def test05(): Unit = {
+    var a = 1
+    var b = 2
+    println(a += 1)
+    println(a -= 1)
+    println(a *= 1)
+    println(a /= 1)
+    println(a %= 1)
+    println(a <<= 1)
+    println(a >>= 1)
+    println(a &= 1)
+    println(a ^= 1)
+    println(a |= 1)
+  }
+}
+
+```
+
