@@ -84,3 +84,30 @@ import java.util.{HashMap => JavaHashMap}
 // 隐藏成员
 import java.util.{HashMap => _, _} // 引入了util包的所有成员，但是HashMap被隐藏了
 ```
+
+---------
+
+# 03Scala 数据类型
+
+Scala 与 Java有着相同的数据类型，下表列出了 Scala 支持的数据类型：
+上表中列出的数据类型都是对象，也就是说scala没有java中的原生类型。
+
+Byte/Short/Int/Long/Float/Double/Char/String 字符序列
+Boolean  | true或false
+Unit 表示无值，和其他语言中void等同。Unit只有一个实例值，写成()。
+Null null 或空引用
+Nothing  | Nothing是所有其他类型的子类型。
+Any  Any是所有其他类的超类
+AnyRef AnyRef类是Scala里所有引用类(reference class)的基类
+
+多行字符串用三个双引号来表示分隔符，格式为：""" ... """。
+
+空值是 scala.Null 类型。
+
+Scala.Null和scala.Nothing是用统一的方式处理Scala面向对象类型系统的某些"边界情况"的特殊类型。
+
+Null类是null引用对象的类型，它是每个引用类（继承自AnyRef的类）的子类。Null不兼容值类型。
+
+Scala 转义字符
+
+
