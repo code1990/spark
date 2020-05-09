@@ -110,4 +110,100 @@ Null类是null引用对象的类型，它是每个引用类（继承自AnyRef的
 
 Scala 转义字符
 
+------------------
+
+# 04Scala 变量
+
+声明变量实例如下：
+
+```scala
+//变量修饰符 变量名称:变量类型=变量值
+var myVar : String = "Foo"//变量 myVar，我们可以修改它
+var myVal : String = "Too"//常量 myVal，它是不能修改的
+var myVar1 = 10//会被推断为 Int 类型
+val myVal2 = "Hello, Scala!"//会被推断为 String 类型
+val xmax, ymax = 100  // 多个变量声明xmax, ymax都声明为100
+val pa = (40,"Foo")//声明一个元组
+```
+
+--------------
+
+# 05Scala 访问修饰符
+
+Scala 访问修饰符基本和Java的一样，分别有：private，protected，public。
+
+默认情况下，
+
+Scala 对象的访问级别都是 public。
+
+Scala 中的 private 限定符，外层类甚至不能访问被嵌套类的私有成员。
+
+Scala 中的 protected限定符，只允许保护成员在定义了该成员的的类的子类中被访问
+
+------
+
+## 私有(Private)成员
+
+```scala
+//外部类
+class Outer{
+    //内部类
+    class Inner{
+        //内部类的私有方法
+    	private def f(){
+            println("f")
+        }
+        //内部类的嵌套类 可以访问直接父类的私有方法
+    	class InnerMost{
+        	f() // 正确
+        }
+    }
+    //在内部类的外部无法直接访问其私有方法
+    (new Inner).f() //错误
+}
+```
+
+------
+
+## 保护(Protected)成员
+
+```scala
+package p{
+//父类    
+class Super{
+    //受保护的父类方法
+    protected def f() {
+        println("f")
+    }
+}
+//子类继承父类 可以访问父类受保护的方法   
+class Sub extends Super{
+    f()
+}
+//同一个包下的其他的类无法访问一个类的受保护的方法
+class Other{
+    (new Super).f() //错误
+}
+}
+```
+
+------
+
+## 公共(Public)成员
+
+```scala
+class Outer {
+   class Inner {
+      def f() { 
+          println("f")             
+      }
+      class InnerMost {
+         f() // 正确
+      }
+   }
+   (new Inner).f() // 正确因为 f() 是 public
+}
+```
+
+作用域保护(用的少)
 
