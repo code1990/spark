@@ -499,3 +499,4 @@ object Base08Test {
 
 ```
 
+# 09Scala 方法与函数
