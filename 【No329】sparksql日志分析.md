@@ -87,7 +87,13 @@ Spark SQL部分
 
 #### 1-6 hadoop概述
 
+狭义的Hadoop：是一个适合大数据分布式存储（HDFS）、分布式计算（MapReduce）
 
+和资源调度（YARN）的平台；
+
+Flume进行数据采集
+Spark/MR/Hive等进行数据处理
+HDFS/HBase进行数据存储
 
 
 #### 1-7 hdfs概述及设计目标
@@ -95,41 +101,78 @@ Spark SQL部分
 
 
 
-#### 1-8 hdfs架构mp4
+#### 1-8 hdfs架构
 
+![](doc/HDFS_architect.png)
 
+1Master（NameNode/NN）带N个Slaves（DataNode/DN）
+HDFS/YARN/HBase
+1个文件会被拆分成多个Block blocksize：128M
+130M==>2个Block：128M和2M 
+
+NN：
+1）负责客户端请求的响应
+2）负责元数据（文件的名称、副本系数、Block存放的DN）的管理
+
+DN：
+1）存储用户的文件对应的数据块（Block）
+2）要定期向NN发送心跳信息，汇报本身及其所有的block信息，健康状况
+
+一个NameNode 管理多个DataNode 分开部署
 
 #### 1-9 hdfs副本机制
 
+![](doc/datanodes.png)
 
+同一个时间点只有一个writer文件读写，不支持并发读写 所有的Block大小一致 除了最后一个
 
 #### 1-10hadoop下载jdk安装、
 
-
+/home/hadoop 
+software：存放的是安装的软件包
+app：存放的是所有软件的安装目录
+data：存放的是课程中所有使用的测试数据目录
+source：存放的是软件源码目录，spark
 
 #### 1-11 机器参数设置
 
-
+![](doc/linux_config.png)
 
 #### 1-12 hdfs核心配置文件内容配置
 
-
+![](doc/hadoop_config.png)
 
 #### 1-13 hdfs格式化及启停
 
-
+![](doc/hdfs_use.png)
 
 #### 1-14 hdfs shell常用操作
 
+hadoop fs -ls /
+hadoop fs -ls -R /
+hadoop fs -mkdir -p /a/b
+hadoop fs -put xx /test
+hadoop fs -text /test
+hadoop fs -get /test
 
+hadoop fs -rmr /test
 
 #### 1-15HDFS优缺点
 
+高容错
+适合批处理
+适合大数据
+构建在廉价机器
 
+
+低延迟的数据访问
+小文件存储
 
 #### 1-16MapReduce概述
 
+离线批处理
 
+不擅长做实时计算+流式计算+DAG运算
 
 #### 1-17 mapreduce编程模型及wordcount
 
